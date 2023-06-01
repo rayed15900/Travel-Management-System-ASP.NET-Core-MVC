@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Travel_Management_System</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Travel_Management_System.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="p-3  d-flex justify-content-between align-items-center">
+                <a href="" class="h1 text-dark text-decoration-none">Travel<span class="text-secondary">Management</span></a>
+                <div>
+                    <a href="" class="border h3 text-dark text-decoration-none text-center m-3 p-2">Home</a>
+                    <a href="#" class=" h3 text-dark text-decoration-none m-3 p-2">About</a>
+                    <a href="#" class="h3 text-dark text-decoration-none text-center m-3 p-2">Contact</a>
+                </div>
+                <div>
+                    <a href="Login.html" class="h3 text-dark text-decoration-none text-center m-3 p-2">Login</a>
+                    <a href="Register.html" class="h3 text-dark text-decoration-none text-center m-3 p-2">Register</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            © 2023 Travel Management System
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
