@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "l4uxDXDXCbo3sevGWouNxlYXqDt8fAeGIlq0Wv9keFc=",
+  "Hash": "+beLZu8Kk1a6fZBrQjzlAja4NyhcOLX5NvWcIoVEfJY=",
   "Source": "Travel Management System",
   "BasePath": "_content/Travel Management System",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\rayed\\OneDrive\\Desktop\\Travel Management System\\Travel Management System\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Travel Management System.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\rayed\\OneDrive\\Desktop\\Travel Management System\\Travel Management System\\wwwroot\\Background.png",
+      "SourceId": "Travel Management System",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rayed\\OneDrive\\Desktop\\Travel Management System\\Travel Management System\\wwwroot\\",
+      "BasePath": "_content/Travel Management System",
+      "RelativePath": "Background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Background.png"
     },
     {
       "Identity": "C:\\Users\\rayed\\OneDrive\\Desktop\\Travel Management System\\Travel Management System\\wwwroot\\css\\site.css",

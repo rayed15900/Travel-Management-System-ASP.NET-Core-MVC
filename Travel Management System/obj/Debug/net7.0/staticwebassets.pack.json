@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Travel Management System.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\rayed\\OneDrive\\Desktop\\Travel Management System\\Travel Management System\\wwwroot\\Background.png",
+      "PackagePath": "staticwebassets\\Background.png"
+    },
+    {
       "Id": "C:\\Users\\rayed\\OneDrive\\Desktop\\Travel Management System\\Travel Management System\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

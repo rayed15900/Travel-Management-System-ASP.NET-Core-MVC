@@ -1,0 +1,43 @@
+﻿@model LoginModel
+
+<div class="container" style="margin-top: 10rem;">
+	<div class="row justify-content-center align-items-center">
+		<div class="col-5">
+			<div id="glass" class="card" style="border-radius: 15px;">
+				<div class="card-body p-5">
+					<div class="row">
+						<h3 class="col-8 mb-4">Login Form</h3>
+					</div>
+					<form method="post">
+						<div class="row">
+							<div class="col-12 mb-4 pb-2">
+								<div class="form-outline">
+									<label asp-for="Username" class="form-label"></label>
+									<input asp-for="Username" class="form-control" />
+									<span asp-validation-for="Username" class="text-light"></span>
+								</div>
+							</div>
+							<div class="col-12 mb-4 pb-2">
+								<div class="form-outline">
+									<label asp-for="Password" class="form-label"></label>
+									<input asp-for="Password" class="form-control" />
+									<span asp-validation-for="Password" class="text-light"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="mt-1 mb-2">
+							<input class="btn btn-outline-dark btn-lg" type="submit" />
+						</div>
+
+						@if (ViewBag.Login != null)
+						{
+							<span class="text-light">@ViewBag.Login</span>
+						}
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

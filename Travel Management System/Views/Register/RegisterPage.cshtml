@@ -1,0 +1,100 @@
+﻿@using Travel_Management_System.EF.Models;
+@model User
+
+<div class="container" style="margin-top: 6rem;">
+	<div class="row justify-content-center align-items-center">
+		<div class="col-7">
+			<div id="glass" class="card" style="border-radius: 15px;">
+				<div class="card-body p-5">
+					<div class="row">
+						<h3 class="col-8 mb-4">Registration Form</h3>
+					</div>
+					<form method="post">
+						<div class="row">
+							<div class="col-6 mb-4">
+								<div class="form-outline">
+									<label asp-for="Name" class="form-label"></label>
+									<input asp-for="Name" class="form-control" />
+									<span asp-validation-for="Name" class="text-light"></span>
+								</div>
+							</div>
+							<div class="col-6 mb-4">
+								<div class="form-outline">
+									<label asp-for="Email" class="form-label"></label>
+									<input asp-for="Email" class="form-control" />
+									<span asp-validation-for="Email" class="text-light"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-6 mb-4 pb-2">
+								<div class="form-outline">
+									<label asp-for="Username" class="form-label"></label>
+									<input asp-for="Username" class="form-control" />
+									<span asp-validation-for="Username" class="text-light"></span>
+								</div>
+							</div>
+							<div class="col-6 mb-4 pb-2">
+								<div class="form-outline">
+									<label asp-for="Password" class="form-label"></label>
+									<input asp-for="Password" class="form-control" />
+									<span asp-validation-for="Password" class="text-light"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-6 mb-4 pb-2">
+								<div class="form-outline">
+									<label asp-for="ConfirmPassword" class="form-label"></label>
+									<input asp-for="ConfirmPassword" class="form-control" />
+									<span asp-validation-for="ConfirmPassword" class="text-light"></span>
+								</div>
+							</div>
+							<div class="col-6 mb-4 pb-2">
+								<div class="form-outline">
+									<label asp-for="PhoneNumber" class="form-label"></label>
+									<input asp-for="PhoneNumber" class="form-control" />
+									<span asp-validation-for="PhoneNumber" class="text-light"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-6 mb-4 pb-2">
+								<div class="form-outline">
+									<label asp-for="DateOfBirth" class="form-label"></label>
+									<input asp-for="DateOfBirth" class="form-control">
+									<span asp-validation-for="DateOfBirth" class="text-light"></span>
+								</div>
+							</div>
+							<div class="col-6 mb-4">
+								<label asp-for="Gender" class="form-label pb-2"></label><br />
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" asp-for="Gender" value="Male" id="M" />
+									<label for="M" class="form-check-label">Male</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" asp-for="Gender" value="Female" id="F" />
+									<label for="F" class="form-check-label">Female</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" asp-for="Gender" value="Other" id="O" />
+									<label for="O" class="form-check-label">Other</label>
+								</div>
+								<br />
+								<span asp-validation-for="Gender" class="text-light"></span>
+							</div>
+						</div>
+
+						<div class="mt-2">
+							<input class="btn btn-outline-dark btn-lg" type="submit" />
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
