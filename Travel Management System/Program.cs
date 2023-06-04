@@ -1,5 +1,11 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Travel_Management_System.EF;
+
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,11 +15,19 @@ builder.Services.AddDbContext<TravelDb>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
+{
+    option.LoginPath = "/Login/LoginPage";
+    option.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+});
+
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(10);
 });
+
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -30,7 +44,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+var httpContextAccessor = app.Services.GetRequiredService<IHttpContextAccessor>();
+
 app.UseSession();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

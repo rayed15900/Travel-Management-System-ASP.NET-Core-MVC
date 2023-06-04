@@ -1,2 +1,20 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http
+@using System.Text.Json;
+@using Travel_Management_System.EF.Models;
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    Layout = "_TravelerLayout";
+}
+
+
+@if (HttpContextAccessor.HttpContext.Session.GetString("Traveler") != null)
+{
+    string TravelerJsonFromSession = HttpContextAccessor.HttpContext.Session.GetString("Traveler");
+    var TravelerFromSession = JsonSerializer.Deserialize<User>(TravelerJsonFromSession);
+
+    <h1>@TravelerFromSession.Name</h1>
+}
+
+
 <h1>Hoi!!! This is Dashboard</h1>

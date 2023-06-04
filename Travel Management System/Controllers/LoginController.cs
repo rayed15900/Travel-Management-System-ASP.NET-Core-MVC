@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using System.Text.Json;
 using Travel_Management_System.EF;
 using Travel_Management_System.EF.Models;
@@ -21,18 +24,26 @@ namespace Travel_Management_System.Controllers
         }
 
         [HttpPost]
-        public IActionResult LoginPage(LoginModel obj)
+        public async Task<IActionResult> LoginPage(LoginModel obj)
         {
             if(ModelState.IsValid)
             {
                 if (obj.Username == "admin" && obj.Password == "1234")
                 {
-                    var admin = (from a in _db.Users
-                                 where a.Username.Equals("admin")
-                                 select a).SingleOrDefault();
+                    List<Claim> claims = new List<Claim>()
+                    { 
+                        new Claim(ClaimTypes.NameIdentifier, obj.Username),
+                        new Claim(ClaimTypes.Role, "Admin")
+                    };
 
-                    string AdminJson = JsonSerializer.Serialize(admin);
-                    HttpContext.Session.SetString("Admin", AdminJson);
+                    ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    AuthenticationProperties properties = new AuthenticationProperties()
+                    {
+                        AllowRefresh = true,
+                    };
+
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity), properties);
 
                     return RedirectToAction("Dashboard", "Admin");
                 }
@@ -44,6 +55,21 @@ namespace Travel_Management_System.Controllers
 
                 if (traveler != null)
                 {
+                    List<Claim> claims = new List<Claim>()
+                    {
+                        new Claim(ClaimTypes.NameIdentifier, obj.Username),
+                        new Claim(ClaimTypes.Role, "Traveler")
+                    };
+
+                    ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    AuthenticationProperties properties = new AuthenticationProperties()
+                    {
+                        AllowRefresh = true
+                    };
+
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity), properties);
+
                     string TravelerJson = JsonSerializer.Serialize(traveler);
                     HttpContext.Session.SetString("Traveler", TravelerJson);
 
@@ -58,15 +84,15 @@ namespace Travel_Management_System.Controllers
             return View();
         }
 
-        public ActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
-            HttpContext.Session.Clear();
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            HttpContext.Session.Remove("Traveler");
+
+            //HttpContext.Session.Clear();
+
             return RedirectToAction("LoginPage");
         }
     }
 }
-
-//string TravelerJsonFromSession = HttpContext.Session.GetString("Traveler");
-//var TravelerFromSession = JsonSerializer.Deserialize<User>(TravelerJsonFromSession);
-
-//return View(TravelerFromSession);
