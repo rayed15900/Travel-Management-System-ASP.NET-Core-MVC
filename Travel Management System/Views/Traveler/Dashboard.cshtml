@@ -13,8 +13,6 @@
     string TravelerJsonFromSession = HttpContextAccessor.HttpContext.Session.GetString("Traveler");
     var TravelerFromSession = JsonSerializer.Deserialize<User>(TravelerJsonFromSession);
 
-    <h1>@TravelerFromSession.Name</h1>
+    <h1 class="text-center" style="font-size:5vw; margin-top: 1em;">Hello @TravelerFromSession.Name</h1>
 }
 
-
-<h1>Hoi!!! This is Dashboard</h1>

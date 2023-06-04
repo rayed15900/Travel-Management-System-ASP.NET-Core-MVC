@@ -1,0 +1,74 @@
+﻿@using Travel_Management_System.EF.Models;
+@model User
+
+@{
+    Layout = "_TravelerLayout";
+}
+
+<div class="container" style="margin-top: 10rem; margin-left: 9rem;">
+	<div class="row justify-content-center align-items-center">
+		<div class="col-9">
+			<div id="glass" class="card" style="border-radius: 15px;">
+				<div class="card-body p-5">
+					<div class="row">
+						<div class="col-9">
+							<div class="row">
+								<div class="col-6 mb-4">
+									<div class="form-outline">
+										<label asp-for="Name" class="form-label"></label>
+										<input asp-for="Name" disabled class="form-control" />
+									</div>
+								</div>
+								<div class="col-6 mb-4">
+									<div class="form-outline">
+										<label asp-for="Email" class="form-label"></label>
+										<input asp-for="Email" disabled class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-6 mb-4">
+									<div class="form-outline">
+										<label asp-for="Username" class="form-label"></label>
+										<input asp-for="Username" disabled class="form-control" />
+									</div>
+								</div>
+								<div class="col-6 mb-4">
+									<div class="form-outline">
+										<label asp-for="PhoneNumber" class="form-label"></label>
+										<input asp-for="PhoneNumber" disabled class="form-control" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-6 mb-4">
+									<div class="form-outline">
+										<label asp-for="DateOfBirth" class="form-label"></label>
+										<input asp-for="DateOfBirth" disabled class="form-control" />
+									</div>
+								</div>
+								<div class="col-6 mb-4">
+									<div class="form-outline">
+										<div class="form-outline">
+											<label asp-for="Gender" class="form-label"></label>
+											<input asp-for="Gender" disabled class="form-control" />
+										</div>
+									</div>
+								</div>
+								<div class="mt-3">
+									<a href="/Traveler/ProfileEdit/@Model.Id" class="btn btn-outline-dark btn-lg">Edit</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="text-center ms-3">
+								<img src="/Icon/Profile.png" style="width: 150px; margin-bottom:10px;"><br />
+								<a asp-controller="" asp-action="">Change</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
